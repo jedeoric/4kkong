@@ -2,7 +2,7 @@
 ;//
 ;// System defines
 ;//
-#define TARGET_TELEMON
+
 
 #ifdef TARGET_TELEMON
 #include "include/macro_telemon_compat.h"
