@@ -163,6 +163,8 @@ loop
 
 #ifdef TARGET_TELEMON
 	CALL_READKEYBOARD
+	cmp #" "  ; space ?
+	bne wait_key	
 	;ldx $279
 	;cpx #132
 	;bne wait_key
@@ -170,7 +172,7 @@ loop
 	;.byt $00,$51
 	;cmp #132
 	;bne wait_key
-	bcs wait_key
+	
 	
 #else
 	ldx $208
