@@ -1823,7 +1823,9 @@ loop_bloc_y
 
 	rts
 .)
-
+#ifdef TARGET_TELEMON
+#include "include/routine_compat_telemon.s"
+#endif
 #include "spr.s"
 #include "vars.s"
 end_adress
