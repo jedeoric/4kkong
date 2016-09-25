@@ -117,7 +117,10 @@ _main
 	;// NOKEYCLICK+SCREEN no cursor
 	
 #ifdef TARGET_TELEMON
-
+	; Switch off keyboard click
+	lda #%00111111
+	and $0275
+	sta $0275
 #else	
 	lda #8+2	
 	sta $26a
