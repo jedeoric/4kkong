@@ -582,14 +582,24 @@ _GameDelayTick			.byt 255
 ;// 180 = Down
 ;// 156 = Up
 ;// 132 = Space
-KeyboardRouter_ScanCode		
+KeyboardRouter_ScanCode
+#ifdef TARGET_TELEMON
+	.byt 8 ; left
+	.byt 9 ; ex 10 right
+	.byt 10 ; ex 11
+	.byt 11
+	.byt " "
+	.byt 0
+
+#else	
 	.byt 172
 	.byt 188
 	.byt 180
 	.byt 156
 	.byt 132
 	.byt 0
-
+#endif
+	
 KeyboardRouter_AddrLow		
 	.byt <HeroMoveLeft
 	.byt <HeroMoveRight

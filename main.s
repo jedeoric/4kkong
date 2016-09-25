@@ -171,6 +171,7 @@ loop
 	;cmp #132
 	;bne wait_key
 	bcs wait_key
+	
 #else
 	ldx $208
 	cpx #132
@@ -1022,18 +1023,19 @@ handle_keyboard
 	;//  y contains the position of hero during all code, do not alterate
 
 #ifdef TARGET_TELEMON
-	CALL_READKEYBOARD
+	.byt $00,$08
 	bcc key_pressed
-	lda $279
-	tax
+
 	sta last_key_press
 	jmp end_keyboard
 key_pressed
-	;tax
+
 	cmp	last_key_press
 	beq end_keyboard
-	lda $279	
 	sta last_key_press
+	
+	
+	
 #else	
 	
 	ldx $208
