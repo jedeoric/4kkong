@@ -166,8 +166,13 @@ loop
 
 #ifdef TARGET_TELEMON
 	CALL_READKEYBOARD
+	cmp #27 ; EST ?
+	bne wait_space
+	jmp return_to_OS
+wait_space
 	cmp #" "  ; space ?
 	bne wait_key	
+
 #else
 	ldx $208
 	cpx #132
@@ -175,6 +180,7 @@ loop
 #endif
 	
 .)
+
 
 
 
@@ -1025,7 +1031,14 @@ handle_keyboard
 	sta last_key_press
 	jmp end_keyboard
 key_pressed
-
+	cmp #27 ; EST ?
+	bne next_key_to_compare
+	sei
+	pla ; unpush last code
+	pla ; unpush last code
+	cli
+	jmp return_to_OS
+next_key_to_compare	
 	cmp	last_key_press
 	beq end_keyboard
 	sta last_key_press
@@ -1817,6 +1830,14 @@ loop_bloc_y
 
 	rts
 .)
+#ifdef TARGET_TELEMON
+return_to_OS
+	;
+	; clear and switch to text
+	.byt $00,$1a ; BRK  Hires
+	.byt $00,$19 ; BRK text
+	rts
+#endif
 #ifdef TARGET_TELEMON
 #include "include/routine_compat_telemon.s"
 #endif
