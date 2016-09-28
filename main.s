@@ -168,15 +168,6 @@ loop
 	CALL_READKEYBOARD
 	cmp #" "  ; space ?
 	bne wait_key	
-	;ldx $279
-	;cpx #132
-	;bne wait_key
-	;lda KBDCOL
-	;.byt $00,$51
-	;cmp #132
-	;bne wait_key
-	
-	
 #else
 	ldx $208
 	cpx #132
