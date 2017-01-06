@@ -94,7 +94,7 @@ _zp_end_
     .byt "o", "r", "i"      ; "o65" MAGIC number :$6f, $36, $35
 	.byt 1			; version
 	;5
-	.byt $00, $00	; mode word mode0, mode1
+	.byt $00, $00	; mode word mode0, mode1 65: 6502
 	.byt $00, $00		; CPU type
 	.byt $00, $00		; operating system id
 ;11
