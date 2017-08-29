@@ -5,10 +5,16 @@ before_install:
     - sudo apt-get install -qq wine
     - sudo apt-get install -qq wget
     - wget http://osdk.defence-force.org/files/osdk_1_10.zip
+    - mkdir osdk && cd osdk
     - unzip -o osdk_1_10.zip
+    - wine bin\xa.exe
+    - cd ..
+    - mkdir cc65 && cd cc65
     - wget http://sourceforge.net/projects/cc65/files/cc65-snapshot-win32.zip
     - unzip -o cc65-snapshot-win32.zip
+    - cd ..
     - ls -la
+    - 
 
 
     
