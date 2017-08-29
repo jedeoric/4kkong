@@ -4,6 +4,7 @@ before_install:
     - sudo apt-get install -qq git 
     - git clone https://github.com/oric-software/buildTestAndRelease.git
     - cd buildTestAndRelease/ && sh make.sh 
+    - cd cc65\bin && wine ./cc65 -h
     - cd osdk && ls -la
     - wine ./bin/xa.exe
 
