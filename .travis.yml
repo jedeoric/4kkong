@@ -3,6 +3,9 @@ before_install:
     - sudo apt-get update -qq
     - sudo apt-get install -qq git 
     - sudo apt-get install -qq wine
+    - sudo apt-get install -qq wget
+    - wget http://osdk.defence-force.org/files/osdk_1_10.zip
+    - unzip osdk_1_10.zip
 
 
     
