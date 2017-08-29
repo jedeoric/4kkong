@@ -5,7 +5,7 @@ REM Copy from bootfd
 
 SET BINARY=4kkong
 
-Set VERSION=0.0.1
+Set VERSION=1.0.0
 
 set PATH_TAR="C:\Program Files (x86)\GnuWin32\bin"
 set PATH_UNZIP="C:\Program Files\7-Zip"
@@ -17,7 +17,7 @@ cd ..
 
 mkdir release\download\orix\%VERSION%\
 mkdir build\usr\share\man
-xcopy src\man\* build\usr\share\man  /E /Q /Y
+copy src\man\%BINARY%.hlp build\usr\share\man
 
 cd build
 
@@ -25,10 +25,15 @@ cd build
 
 cd ..
 
+echo test
+
 del /S /F /Q release\download\orix\%VERSION%\*.*
-rmdir /s /q release\download\orix\%VERSION%\usr
+
+
+echo test
+
 copy build\%BINARY%.tar release\download\orix\%VERSION%\
 %PATH_UNZIP%\7z a release\download\orix\%VERSION%\%BINARY%.tgz release\download\orix\%VERSION%\%BINARY%.tar
-del /S /F /Q release\download\orix\%VERSION%\%BINARY%.tar
+
 
 
