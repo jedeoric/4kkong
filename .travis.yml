@@ -1,1 +1,10 @@
 language: c
+before_install:
+    - sudo apt-get update -qq
+    - sudo apt-get install -qq git 
+    - git clone https://github.com/cc65/cc65.git
+    - cd cc65/
+    - make
+    - cc65 -h
+    
+    
