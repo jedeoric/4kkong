@@ -16,7 +16,6 @@ del /F /S /Q build\
 mkdir build\usr\share\doc\
 mkdir build\usr\share\doc\%BINARYFILE%
 mkdir build\usr\share\man
-mkdir build\usr\share\man\%BINARYFILE%
 mkdir build\usr\bin\
 
 IF NOT EXIST build\usr\share\ipkg mkdir build\usr\share\ipkg      
