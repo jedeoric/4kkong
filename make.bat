@@ -33,7 +33,7 @@ copy src\man\%BINARYFILE%.hlp build\usr\share\man\
 
 %OSDK%\bin\xa.exe -C -W -e error.txt -l xa_labels.txt -o build\usr\bin\4kkong main.s -D__DATEBUILT__="%MYDATE%"  -DTARGET_TELEMON
 IF "%1"=="NORUN" GOTO End
-mkdir %ORICUTRON%\usbdrive\usr\share\man\%BINARYFILE%\
+rem mkdir %ORICUTRON%\usbdrive\usr\share\man\%BINARYFILE%\
 copy build\usr\bin\4kkong %ORICUTRON%\usbdrive\usr\bin
 copy src\man\%BINARYFILE%.hlp %ORICUTRON%\usbdrive\usr\share\man\
 cd %ORICUTRON%
