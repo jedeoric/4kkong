@@ -24,7 +24,7 @@ echo Building version.h
 echo #define VERSION "%VERSION%" > src\version.h
 rem  123456789012345678
 echo Building ipkg csv
-echo 4kkong    1.0.0  Kong game > src\ipkg\%BINARYFILE%.csv
+echo | set /p dummyName=4kkong    1.0.0  Kong game > src\ipkg\%BINARYFILE%.csv
 echo Copy README.md
 copy README.md build\usr\share\doc\%BINARYFILE%
 copy src\ipkg\%BINARYFILE%.csv build\usr\share\ipkg 
@@ -36,6 +36,11 @@ IF "%1"=="NORUN" GOTO End
 rem mkdir %ORICUTRON%\usbdrive\usr\share\man\%BINARYFILE%\
 copy build\usr\bin\4kkong %ORICUTRON%\usbdrive\usr\bin
 copy src\man\%BINARYFILE%.hlp %ORICUTRON%\usbdrive\usr\share\man\
+
+
+
+copy src\ipkg\%BINARYFILE%.csv %ORICUTRON%\usbdrive\usr\share\ipkg\
+
 cd %ORICUTRON%
 OricutronV4 -mt -d disks/demo/OricTech.dsk
 cd %ORIGIN_PATH%

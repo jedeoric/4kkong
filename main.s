@@ -166,7 +166,7 @@ loop
 
 #ifdef TARGET_TELEMON
 	CALL_READKEYBOARD
-	cmp #27 ; EST ?
+	cmp #27 ; ESC ?
 	bne wait_space
 	jmp return_to_OS
 wait_space
