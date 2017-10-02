@@ -1,2 +1,3 @@
 #! /bin/sh
-echo Nothing to configure :)
+echo Nothing to configure 
+echo up
