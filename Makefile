@@ -13,5 +13,5 @@ test:
 	mkdir -p build/usr/share/ipkg  
 	cp $(PROGRAM) build/usr/bin/
 	cp src/man/$(PROGRAM).hlp build/usr/share/man
-  cp src/ipkg/$(PROGRAM).csv build/usr/share/ipkg
+	cp src/ipkg/$(PROGRAM).csv build/usr/share/ipkg
 	echo nothing
