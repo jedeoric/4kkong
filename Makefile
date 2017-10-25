@@ -3,7 +3,6 @@ PROGRAM=4kkong
 SOURCE=main.s
 ASFLAGS=-C -W -e error.txt -l xa_labels.txt -DTARGET_TELEMON
 
-
 $(PROGRAM): $(SOURCE)
 	$(AS) $(SOURCE) $(ASFLAGS) -o $(PROGRAM)
 
@@ -14,4 +13,6 @@ test:
 	cp $(PROGRAM) build/usr/bin/
 	cp src/man/$(PROGRAM).hlp build/usr/share/man
 	cp src/ipkg/$(PROGRAM).csv build/usr/share/ipkg
+  tar -c build/* > $(PROGRAM).tar
+  filepack  $(PROGRAM).tar $(PROGRAM).pkg
 	echo nothing
