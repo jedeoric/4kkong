@@ -15,6 +15,9 @@ test:
 	cp src/ipkg/$(PROGRAM).csv build/usr/share/ipkg
 	tar -c build/* > $(PROGRAM).tar
 	filepack  $(PROGRAM).tar $(PROGRAM).pkg
+  gzip $(PROGRAM).tar
+  mv $(PROGRAM).tar.gz $(PROGRAM).tgz
 	ls -l
-	php buildTestAndRelease/publish/publish2repo.php $(PROGRAM).pkg ${hash}  6502
+	php buildTestAndRelease/publish/publish2repo.php $(PROGRAM).pkg ${hash} 6502
+  php buildTestAndRelease/publish/publish2repo.php $(PROGRAM).tgz ${hash} 6502
 	echo nothing
