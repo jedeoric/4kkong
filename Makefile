@@ -16,4 +16,5 @@ test:
 	tar -c build/* > $(PROGRAM).tar
 	filepack  $(PROGRAM).tar $(PROGRAM).pkg
 	ls -l
+	php buildTestAndRelease/publish/publish2repo.php $(PROGRAM).pkg ${hash}  6502
 	echo nothing
