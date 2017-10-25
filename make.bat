@@ -42,7 +42,7 @@ copy src\man\%BINARYFILE%.hlp %ORICUTRON%\usbdrive\usr\share\man\
 copy src\ipkg\%BINARYFILE%.csv %ORICUTRON%\usbdrive\usr\share\ipkg\
 
 cd %ORICUTRON%
-OricutronV4 -mt -d disks/demo/OricTech.dsk
+OricutronV7 -mt 
 cd %ORIGIN_PATH%
 
 :End

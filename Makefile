@@ -13,9 +13,9 @@ test:
 	cp $(PROGRAM) build/usr/bin/
 	cp src/man/$(PROGRAM).hlp build/usr/share/man
 	cp src/ipkg/$(PROGRAM).csv build/usr/share/ipkg
-  cd build
+	cd build
 	tar -c * > ../$(PROGRAM).tar
-  cd ..
+	cd ..
 	filepack  $(PROGRAM).tar $(PROGRAM).pkg
 	gzip $(PROGRAM).tar
 	mv $(PROGRAM).tar.gz $(PROGRAM).tgz
