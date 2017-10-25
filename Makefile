@@ -15,4 +15,5 @@ test:
 	cp src/ipkg/$(PROGRAM).csv build/usr/share/ipkg
 	tar -c build/* > $(PROGRAM).tar
 	filepack  $(PROGRAM).tar $(PROGRAM).pkg
+  ls -l
 	echo nothing
