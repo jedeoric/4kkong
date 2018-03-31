@@ -4,7 +4,7 @@
 ;//
 
 
-#ifdef TARGET_TELEMON
+#ifdef TARGET_ORIX
 #include "include/macro_telemon_compat.h"
 #else
 #include "include/macro_basic1_1_compat.h"
@@ -87,7 +87,7 @@ _zp_end_
 
 .text
 
-#ifdef TARGET_TELEMON
+#ifdef TARGET_ORIX
 *=$1000-20
 	.byt $01,$00		; non-C64 marker
 ;2
@@ -116,7 +116,7 @@ _main
 	CALL_LORES0
 	;// NOKEYCLICK+SCREEN no cursor
 	
-#ifdef TARGET_TELEMON
+#ifdef TARGET_ORIX
 	; Switch off keyboard click
 	lda #%00111111
 	and $0275
@@ -164,7 +164,7 @@ loop
 	ldx #20
 	jsr BlinkTemporisation
 
-#ifdef TARGET_TELEMON
+#ifdef TARGET_ORIX
 	CALL_READKEYBOARD
 	cmp #27 ; ESC ?
 	bne wait_space
@@ -225,7 +225,7 @@ loop
 	;// #define SCREEN		0x02  /* Printout to screen on (ctrl-s) */
 	;// #define NOKEYCLICK	0x08  /* Turn keyclick off	  (ctrl-f) */
 	;// #define PROTECT		0x20  /* Protect columns 0-1   (ctrl-]) */
-#ifdef TARGET_TELEMON	
+#ifdef TARGET_ORIX
 #else
 	lda #8+2	;// NOKEYCLICK+SCREEN no cursor
 	sta $26a
@@ -1024,7 +1024,7 @@ handle_keyboard
 	;// Handle keyboard
 	;//  y contains the position of hero during all code, do not alterate
 
-#ifdef TARGET_TELEMON
+#ifdef TARGET_ORIX
 	.byt $00,$08
 	bcc key_pressed
 
@@ -1830,7 +1830,7 @@ loop_bloc_y
 
 	rts
 .)
-#ifdef TARGET_TELEMON
+#ifdef TARGET_ORIX
 return_to_OS
 	;
 	; clear and switch to text
@@ -1838,7 +1838,7 @@ return_to_OS
 	.byt $00,$19 ; BRK text
 	rts
 #endif
-#ifdef TARGET_TELEMON
+#ifdef TARGET_ORIX
 #include "include/routine_compat_telemon.s"
 #endif
 #include "spr.s"
